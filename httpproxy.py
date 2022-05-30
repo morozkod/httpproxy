@@ -24,7 +24,7 @@ class HtoolsProto:
         self.done = True
         print('Parsing done')
 
-def url_is_https(url):
+def has_prefix(url):
     return b'://' in url
 
 def __parse_url_https(url):
@@ -45,7 +45,7 @@ def __parse_url_https(url):
     return (host, port)
 
 def __parse_url_http(url):
-    if not url_is_https(url): # Dirty hack
+    if not has_prefix(url): # Dirty hack
         url = b'https://' + url
 
     info = __parse_url_https(url)
