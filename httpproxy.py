@@ -102,8 +102,8 @@ def handle_connection(client_sock):
 
     try:
         server_sock = socket_create_and_connect(*requested_conn_info)
-    except Exception as e:
-        print('Could not create socket or connect', e)
+    except Exception:
+        print('Could not create socket or connect')
         return
 
     if method == b'CONNECT':
